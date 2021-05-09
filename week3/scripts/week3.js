@@ -98,3 +98,4 @@ console.log(friends.includes('Aklilu'));
 if(friends.includes('Mario')){
     console.log("You have a friend named Mario congratz!!!");
 }
+//
