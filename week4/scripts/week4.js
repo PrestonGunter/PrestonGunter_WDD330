@@ -29,7 +29,7 @@ document.querySelector('button').addEventListener('click', (e) =>{
 
 
 //add to local storage
-// localStorage.setItem('cars', JSON.stringify(cars));
+// localStorage.setItem('cars', JSON.stringify(cars));      
 
 let ul = document.querySelector('.cars');
 cars.forEach(
@@ -41,5 +41,45 @@ cars.forEach(
 
 console.log(cars);
 
+
+//Personal Study Code
+//dot vs bracket notation 
+const preston = {
+    firstName: 'Preston',
+    lastName: 'Gunter',
+    birthYear: 1998,
+    job: 'Student',
+    friends: ['Logan', 'Mario', 'Aklilu'],
+    hasDriversLicense: true
+}; 
+
+console.log(preston);
+// this is dot notation
+console.log(preston.lastName);
+
+// this is bracket notation 
+console.log(preston['lastName']); 
+
+const nameKey = 'Name';
+console.log(preston['first' + nameKey]);
+console.log(preston['last' + nameKey]);
+
+//in this example the bracket notation works 
+//if you tried to use the dot notation you would get an undfined
+// const aboutPreston = prompt('What do you want to know about Preston? Choose between firstName, lastName, age, job, and friends');
+// console.log(aboutPreston[aboutPreston]);
+
+// if(preston[aboutPreston]){
+//     console.log(aboutPreston[aboutPreston]);    
+// }
+// else{
+//     console.log('Wrong request! Choose between firstName, lastName, age, job, and friends!')
+// }
+
+//This will add the locaiton property to the preston object 
+preston.location = 'Texas';
+
+// I wanted to show that the dot notation is you calling a property that has already been made.
+console.log(`${preston.firstName} has ${preston.friends.length}, and his best friend is called ${preston.friends[0]}`)
 
 

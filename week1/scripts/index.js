@@ -28,6 +28,11 @@ const links = [
   {
     label: "Week 3 Team Activity: Array Cardio",
     url: "../week3/team_week3.html"
+  },
+
+  {
+    label: "Week 4 notes",
+    url: "../week4/index.html"
   }
 
 ];
