@@ -33,6 +33,21 @@ const links = [
   {
     label: "Week 4 notes",
     url: "../week4/index.html"
+  },
+
+  {
+    label: "Week 4 Team Activity: Tic Tac Toe",
+    url: "../week4/team_week4.html"
+  },
+
+  {
+    label: "Week 5 notes",
+    url: "../week5/index.html"
+  },
+
+  {
+    label: "To Do Application",
+    url: "../todo_application/todo.html"
   }
 
 ];

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../todo_application/styles/todo.css" rel="stylesheet" />
+    <title>To Do Application</title>
+  </head>
+  <body>
+    
+    <nav>
+      <button onclick="myFunction()" class="dropbtn">☰ Menu</button>
+      <ul id="myDropdown" class="dropdown-content">
+        <li></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>ToDo Application</h1>
+    </header>
+
+    <main>
+      <div>
+        <input type="text" placeholder="Type a task, goal, etc..." id="input" />
+        <input type="button" value="Add Task" />
+      </div>
+
+      <div class="input_buttons" id="my_input_buttons">
+        <input type="button" value="Clear All" id="clearAll" />
+
+        <input type="button" value="Show All Tasks" id="all" />
+
+        <input type="button" value="Active Tasks" id="active" />
+
+        <input type="button" value="Completed Tasks" id="completed" />
+      </div>
+
+      <ul id="items"></ul>
+    </main>
+
+    <footer></footer>
+
+    <script src="../todo_application/scripts/todos.js" type="module"></script>
+    <script src="../week1/scripts/index.js"></script>
+  </body>
+</html>
