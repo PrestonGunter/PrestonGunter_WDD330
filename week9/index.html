@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preston Gunter Portfolio</title>
+    <link href="../week1/styles/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Preston's Portfolio Week 9</h1>
+      <h2>Code examples in the console!</h2>
+    </header>
+
+    <nav>
+      <button onclick="myFunction()" class="dropbtn">☰ Menu</button>
+      <ul id="myDropdown" class="dropdown-content">
+        <li></li>
+      </ul>
+    </nav>
+
+    <main>
+        <h2>How JavaScript Works Behind the Scenes</h2>
+        <p>
+            This week I wanted to focus more on how the JavaScript language works.<br>
+            Here are some of my note that I took during my studying.<br> 
+
+            <h3>Understanding the JS engine and runtime</h3>
+            In the JS engine there are two important things that help us execute JS code.<br>
+            These are the call stack and the heap. The call stack is where are code is executed.<br>
+            The heap is where we store objects in memory. 
+
+            <h3>Compilation Vs Interpretation</h3>
+            <strong>Compilation:</strong>Entire code is converted into machine code at once and written to a binary
+             file that can be executed by a computer.<br>
+
+             <strong>Interpretation:</strong>Interpreter runs through the source code and executes it line by line.<br>
+
+             JavaScript used to only be a interpreted language but for modern day web apps it now uses<br>
+             a combanation of both compilation and interpretation. This is because interpretation is to slow<br>
+             by itself.<br>
+
+             JavaScript now uses something called <strong>Just-in-time(JIT) compilation:</strong> This is where all of the code<br>
+             is converted into machine code at once, then executed immediately. 
+
+             <h3>Scoping and Scope in JavaScript</h3>
+             
+             <strong>Scoping:</strong> How our program's variables are organized and accessed<br>
+
+             <strong>Lexical scoping:</strong> Scoping is controlled by placement of functions and blocks in the code.
+
+             <strong>Scope:</strong> Space or environment in which a certain variable is declared<br>
+             There is global scope, function scope, and block scope.<br>
+
+             <h3>Hoisting In JavaScript</h3>
+
+             <strong>Hoisting:</strong> Makes some types of variables accessible/usable in the code before they are actually declared<br>
+             "variables lifted to the top of their scope".
+
+             <h3>The Scope Chain</h3>
+             <img src="../week9/images/scope_chain.PNG">
+        </p>
+    </main>
+    <footer></footer>
+
+    <script src="../week1/scripts/index.js"></script>
+    <script src="../week9/scripts/week9.js"></script>
+  </body>
+</html>
