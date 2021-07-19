@@ -70,6 +70,11 @@ const links = [
     url:"../week10/index.html"
   },
 
+  {
+    label: "Final Project",
+    url:"../final_project/index.html"
+  },
+
 ];
 
 

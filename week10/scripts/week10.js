@@ -1,5 +1,21 @@
 "use strict";
 
+const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0,
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: "Sushi Time",
   location: "Idaho Falls",
@@ -7,7 +23,15 @@ const restaurant = {
   starterMenu: ["Salmon", "Tuna", "Miso Soup", "Sesoned Green Beans"],
   mainMenu: ["California Roll", "Philadelphia Roll", "Crunchy Roll"],
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  openingHours,
+
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+
+  // ES6 another way of writing a methods in an object
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
@@ -22,20 +46,20 @@ const restaurant = {
     );
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0,
-      close: 24,
-    },
-  },
+  // openingHours: {
+  //   thu: {
+  //     open: 12,
+  //     close: 22,
+  //   },
+  //   fri: {
+  //     open: 11,
+  //     close: 23,
+  //   },
+  //   sat: {
+  //     open: 0,
+  //     close: 24,
+  //   },
+  // },
 
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}`);
@@ -46,6 +70,132 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+const rest = new Map();
+rest.set("name", "Sushi Time");
+rest.set(1, "Firenze, Italy");
+console.log(rest.set(2, "Lisbon, Portugal"));
+
+
+rest
+  .set("categories", ["soup", "sushi rolls", "fresh fish", "Organic"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are open :D")
+  .set(false, "We are closed :(");
+console.log(rest.set());
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2); 
+console.log(rest);
+console.log(rest.size);
+
+rest.set([1,2], 'Test');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get([1, 2]) );
+// SETS *************************
+// const ordersSet = new Set([
+//   "Pasta",
+//   "Pizza",
+//   "Pizza",
+//   "Risotto",
+//   "Pasta",
+//   "Pizza",
+// ]);
+// console.log(ordersSet);
+
+// console.log(ordersSet.size);
+// console.log(ordersSet.has("Pizza"));
+// console.log(ordersSet.has("preston"));
+// ordersSet.add("Garlic Bread");
+// ordersSet.add("Garlic Bread");
+// ordersSet.delete("Risotto");
+// ordersSet.clear();
+// console.log(ordersSet);
+
+// for (const order of ordersSet) console.log(order);
+
+// Example
+// const staff = [
+//   "Waiter",
+//   "Chef",
+//   "Waiter",
+//   "Manager",
+//   "Chef",
+//   "Waiter",
+//   "hello",
+// ];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+// console.log(
+//   new Set(["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter", "hello"])
+//     .size
+// );
+
+// Property Names
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days: `;
+
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
+
+// Property Values
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// Entire object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// [key, value]
+// for(const [key, {open, close}] of entries){
+//   console.log(`On ${key} we opent at ${open} and close at ${close}`);
+// }
+
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+// const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? "closed";
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// Methods with optional chaining
+// console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+// console.log(restaurant.orderPopTart?.(0, 1) ?? "Method does not exist");
+
+// Arrays with optional chaining
+// const users = [{ name: "Preston", email: "peepee@pee.com" }];
+// console.log(users[0]?.name ?? "User array empty");
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// console.log([...menu.entries()]);
 
 // restaurant.numGuests = 0;
 // const guests2 = restaurant.numGuests || 10;
@@ -228,59 +378,59 @@ const [p, q, r] = [8, 9];
 console.log(p, q, r);
 */
 
-// Coding challenge
-const game = {
-  team1: "Bayern Munich",
-  team2: "Borrussia Dortmund",
-  players: [
-    [
-      "Neuer",
-      "Pavard",
-      "Martinez",
-      "Alaba",
-      "Davies",
-      "Kimmich",
-      "Goretzka",
-      "Coman",
-      "Muller",
-      "Gnarby",
-      "Lewandowski",
-    ],
-    [
-      "Burki",
-      "Schulz",
-      "Hummels",
-      "Akanji",
-      "Hakimi",
-      "Weigl",
-      "Witsel",
-      "Hazard",
-      "Brandt",
-      "Sancho",
-      "Gotze",
-    ],
-  ],
-  score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-  date: "Nov 9th, 2037",
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// Coding challenge 1
+// const game = {
+//   team1: "Bayern Munich",
+//   team2: "Borrussia Dortmund",
+//   players: [
+//     [
+//       "Neuer",
+//       "Pavard",
+//       "Martinez",
+//       "Alaba",
+//       "Davies",
+//       "Kimmich",
+//       "Goretzka",
+//       "Coman",
+//       "Muller",
+//       "Gnarby",
+//       "Lewandowski",
+//     ],
+//     [
+//       "Burki",
+//       "Schulz",
+//       "Hummels",
+//       "Akanji",
+//       "Hakimi",
+//       "Weigl",
+//       "Witsel",
+//       "Hazard",
+//       "Brandt",
+//       "Sancho",
+//       "Gotze",
+//     ],
+//   ],
+//   score: "4:0",
+//   scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+//   date: "Nov 9th, 2037",
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-const [players1, players2] = game.players;
-console.log(players1, players2);
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
 
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
-console.log(players1Final);
+// const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+// console.log(players1Final);
 
 // const [gk1, ...fielsPlayers1] = [game.team1, players1]
 // console.log(gk1, fielsPlayers1);
@@ -288,17 +438,17 @@ console.log(players1Final);
 // const [gk2, ...fielsPlayers2] = [game.team2, players2]
 // console.log(gk2, fielsPlayers2);
 
-const [team1, draw, team2] = [game.odds.team1, game.odds.x, game.odds.team2];
-console.log(team1, draw, team2);
+// const [team1, draw, team2] = [game.odds.team1, game.odds.x, game.odds.team2];
+// console.log(team1, draw, team2);
 
-function printGoals(...players) {
-  console.log(players);
-  console.log(`${players.length} goals were scored`);
-}
+// function printGoals(...players) {
+//   console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// }
 
-printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
-printGoals("Pavard", "Martinez", "Alaba", "Davies", "Kimmich");
-printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
+// printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
+// printGoals("Pavard", "Martinez", "Alaba", "Davies", "Kimmich");
+// printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
 
-team1 < team2 && console.log("Team 1 is more likely to win");
-team1 > team2 && console.log("Team 2 is more likely to win");
+// team1 < team2 && console.log("Team 1 is more likely to win");
+// team1 > team2 && console.log("Team 2 is more likely to win");
